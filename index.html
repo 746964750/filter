@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>查询</title>
+		<link rel="stylesheet" type="text/css" href="css/button.css" />
+		<link rel="stylesheet" type="text/css" href="css/filter.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/laydate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/moment.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highLight.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.filter.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.container {
+				width: 1200px;
+				margin: 0 auto;
+				padding: 20px 0;
+			}
+			
+			.info {
+				width: 1200px;
+				margin: 0 auto;
+				padding: 20px 0;
+			}
+			
+			.key {
+				color: red;
+			}
+			
+			.string {
+				color: green;
+			}
+			
+			.number {
+				color: orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--过滤条件显示区域-->
+		<div class="container">
+		</div>
+		<!--结果返回显示区域-->
+		<pre class="info">
+		</pre>
+		<script type="text/javascript">
+			$(function() {
+				//初始化过滤区域
+				$(".container").filter({
+					vagueKey:"text",//模糊查询关键字对应字段，默认“keywords”
+					callback: function(values) { //选中后回调
+						$(".info").html(highLight(JSON.stringify(values, undefined, 4)));//格式化后在页面高亮显示
+					},
+					items: [{
+							text: "客户类型",//条件名称
+							name: "cusType",//条件对应字段
+							type: "opt",//字典项类型
+							opts: [{
+								"text": "个人",//显示值
+								"value": "0"//真实值
+							}, {
+								"text": "对公",
+								"value": "1"
+							}]//筛选条件项
+						},
+						{
+							text: "贷款金额",
+							name: "amt",
+							type: "range",//数值范围类型
+							unit: "万",//显示的单位
+							multiple: 10000,//换算倍数
+							separator:"~",//分隔符，默认“~”
+							opts: [{
+								"text": "10万~20万",
+								"value": "100000~200000"
+							}, {
+								"text": "20万~30万",
+								"value": "200000~300000"
+							}, {
+								"text": "30万~40万",
+								"value": "300000~400000"
+							}, {
+								"text": "40万~50万",
+								"value": "400000~500000"
+							}]
+						},
+						{
+							text: "放款日期",
+							name: "date",
+							type: "daterange",//日期范围类型
+							format: "yyyy-MM-dd",//日期格式
+							opts: [{
+								"text": "今天",
+								"value": getCurrDateRang(0)
+							}, {
+								"text": "最近3天",
+								"value": getCurrDateRang(3)
+							}, {
+								"text": "最近5天",
+								"value": getCurrDateRang(5)
+							}, {
+								"text": "最近10天",
+								"value": getCurrDateRang(10)
+							}]
+						}
+
+					]
+				});
+			})
+
+			//获取当前日期的前几天范围
+			function getCurrDateRang(n) {
+				return moment().subtract(n, 'days').format("YYYY-MM-DD") + " ~ " + moment().format("YYYY-MM-DD");
+			}
+		</script>
+	</body>
+
+</html>

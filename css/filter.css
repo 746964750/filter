@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.filter-box {
+    color: #666;
+    font-weight: 300;
+    font-size: 12px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    text-decoration: none;
+    user-select: none;
+}
+
+.filter-view {
+    height: 40px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-col {
+    display: inline-block;
+    height: 40px;
+    flex-grow: 0;
+}
+
+.filter-col.filter-ctrl {
+}
+
+.filter-col.filter-list {
+    flex-grow: 1;
+    align-items: center;
+    display: flex;
+}
+
+.filter-col.filter-search {
+    width: 276px;
+    border: 2px solid #FF4351;
+    line-height: 100%;
+    overflow: hidden;
+}
+
+.filter-config {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    position: relative;
+    display: none;
+}
+
+.filter-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.filter-item.filter-date {
+}
+
+.filter-item.filter-amt {
+}
+
+.filter-tag {
+    border: 1px solid #ff4351;
+    padding: 5px 15px;
+    margin: 0px 0px 0px 5px;
+}
+
+.tag-close {
+    cursor: pointer;
+    margin-right: -6px;
+    float: right;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+}
+
+.tag-close:hover {
+    color: #ff4351;
+}
+
+.senior-btn {
+    height: 100%;
+}
+
+.vague-btn {
+    border: none;
+    padding: 10px 15px;
+    height: 100%;
+    float: right;
+    font-weight: 300;
+    font-size: 16px;
+    /* background-color: #f3f1f1; */
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.vague-input {
+    border: none;
+    outline: 0;
+    height: 30px;
+    padding: 5px 10px;
+    width: 193px;
+    float: left;
+}
+
+.item-label {
+    display: inline-block;
+    /* background-color: #f3f1f1; */
+    width: 100px;
+    padding: 10px;
+}
+
+.item-options {
+    display: inline-block;
+}
+
+.item-options .item-opt {
+    display: inline-block;
+    width: 100px;
+    cursor: pointer;
+}
+
+.item-options .item-opt:hover {
+    color: #f00;
+}
+
+.item-options .item-opt.on {
+    color: #f00;
+}
+
+.input-txt {
+    display: inline-block;
+    width: 40px;
+    margin: 0px 10px;
+}
+
+.input-date {
+    color: #666;
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+.item-opt > em {
+    display: inline-block;
+    /* margin: 0 5px; */
+}
+
+.item-opt.item-range {
+    width: 210px;
+}
+
+.item-opt.item-daterange {
+    width: 270px;
+}
+
+.more-items {
+    width: 80px;
+    text-align: center;
+    display: block;
+    margin: 0px auto;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+    margin-top: -2px;
+}
+
+.more-items .more-info {
+    font-size: 12px;
+    padding-top: 4px;
+    display: block;
+    cursor: pointer;
+}
+
+.no-more {
+    width: 80px;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+}
